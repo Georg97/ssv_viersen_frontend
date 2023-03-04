@@ -8,7 +8,9 @@ export default function FachschaftenPage() {
             <Head>
                 <title>SSV | Fachschaften</title>
             </Head>
-            <Fachschaften />
+            <div className="container mx-auto">
+                <Fachschaften />
+            </div>
         </>
     )
 }
