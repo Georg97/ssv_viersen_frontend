@@ -17,6 +17,32 @@ const list: fachschaft_inteface[] = [
           {
               positionsbezeichnung: '1. Vorsitzender'
             , name: 'Thomas Schneider'
+          },
+          {
+              positionsbezeichnung: '2. Vorsitzender'
+            , name: 'Reinhard Peters'
+          },
+          {
+              positionsbezeichnung: 'Kassenwart'
+            , name: 'Reinhard Peters'
+          },
+          {
+              positionsbezeichnung: 'Jugendwart'
+            , name: 'Georg Hirsch'
+          },
+          {
+              positionsbezeichnung: '2. Jugendwart'
+            , name: 'Elias Eliktissadi'
+          }
+        ]
+      },
+      {
+          id: 6
+        , name: 'Taekwondo Verein 2'
+        , personen: [
+          {
+              positionsbezeichnung: '1. Vorsitzender'
+            , name: 'Guido'
           }
         ]
       }
@@ -28,7 +54,7 @@ const list: fachschaft_inteface[] = [
     , vereine: [
       {
           id: 1
-        , name: 'KSG Oh-Do-Kwan e.V.'
+        , name: 'SG Dülken e.V.'
         , personen: [
           {
               positionsbezeichnung: '1. Vorsitzender'
@@ -44,7 +70,7 @@ const list: fachschaft_inteface[] = [
     , vereine: [
       {
           id: 1
-        , name: 'KSG Oh-Do-Kwan e.V.'
+        , name: 'Tennisclub Viersen e.V.'
         , personen: [
           {
               positionsbezeichnung: '1. Vorsitzender'
@@ -60,7 +86,7 @@ const list: fachschaft_inteface[] = [
     , vereine: [
       {
           id: 1
-        , name: 'KSG Oh-Do-Kwan e.V.'
+        , name: 'Ballklopper e.V.'
         , personen: [
           {
               positionsbezeichnung: '1. Vorsitzender'
@@ -76,7 +102,7 @@ const list: fachschaft_inteface[] = [
     , vereine: [
       {
           id: 1
-        , name: 'KSG Oh-Do-Kwan e.V.'
+        , name: 'Pukmeister e.V.'
         , personen: [
           {
               positionsbezeichnung: '1. Vorsitzender'
@@ -106,20 +132,15 @@ export default function Fachschaften() {
 
     return (
         <div className="flex flex-row">
-            {/* <div className="flex-auto flex flex-col gap-4 border-2 border-pink-500"> */}
-            <div className="fachschaften-selection">
+            <div className="flex-initial w-1/4 flex-col gap-4 hidden sm:flex">
+                <h3 className="text-4xl font-bold text-center">Fachschaft</h3>
                 {fachschaften.map((entry) => (
-                    <button key={entry.name} className="text-center border-2 w-32 rounded-lg hover:scale-110 transition-all" onClick={() => setCurrent(entry.id)}>{entry.name}</button>
+                    <button key={entry.name} className={`btn mx-auto ${entry.id == current_id ? 'primary selected' : ''}`} onClick={() => setCurrent(entry.id)}>{entry.name}</button>
                 ))}
             </div>
-            {/* <div className="flex-auto border-pink-500 border-2"> */}
-            <div className="fachschaft-details">
-                {/* {current_id && (
-                    <h1>{fachschaften.find(v => v.id == current_id)?.name}</h1>
-                )} */}
+            <div className="flex-initial w-3/4">
                 {current_id && fachschaften.find(v => v.id == current_id) && (
                     <FachschaftDetail fachschaft={ensure<fachschaft_interface>(fachschaften.find(v => v.id == current_id))} />
-                    // <FachschaftDetail fachschaft={{id: 1, name: 'fachschaft', fachwart: 'fachwarttest'}} />
                 )}
             </div>
         </div>
