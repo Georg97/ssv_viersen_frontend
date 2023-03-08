@@ -21,4 +21,8 @@ body {
   .btn.selected {
     @apply scale-125 font-bold
   }
+
+  .link {
+    @apply text-blue-400 font-bold underline hover:text-blue-600 transition-all
+  }
 }

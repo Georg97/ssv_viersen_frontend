@@ -144,7 +144,7 @@ export default function Fachschaften() {
             <div className="flex-initial w-1/4 flex-col gap-4 hidden sm:flex">
                 <h3 className="text-4xl font-bold text-center">Fachschaft</h3>
                 {fachschaften.map((entry) => (
-                    <button key={entry.name} className={`btn mx-auto ${entry.id == current_id ? 'primary selected' : ''}`} onClick={() => setCurrent(entry.id)}>{entry.name}</button>
+                    <button key={entry.name} className={`mx-auto font-bold text-xl hover:scale-125 transition-all ${entry.id == current_id ? 'text-blue-500 scale-150 hover:scale-150' : ''}`} onClick={() => setCurrent(entry.id)}>{entry.name}</button>
                 ))}
             </div>
             <div className="flex-initial w-3/4">

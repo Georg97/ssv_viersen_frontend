@@ -18,7 +18,7 @@ export class nav_item implements nav_item_interface {
 
 export function get_menu_entries() {
     return [
-          new nav_item('SSV', '/test')
+          new nav_item('SSV', '/')
         , new nav_item('Fachschaften', '/fachschaften')
     ]
 }
