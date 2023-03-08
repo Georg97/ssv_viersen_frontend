@@ -12,14 +12,19 @@ body {
 @tailwind utilities;
 
 @layer components {
+  .soft-gradient {
+    @apply bg-gradient-to-br from-stone-50 via-violet-50
+                             dark:from-slate-800 dark:via-[#191757]
+  }
+  .hard-gradient {
+    @apply bg-gradient-to-br from-sky-400 via-blue-400 dark:from-indigo-900 dark:via-blue-900
+    /* dark:bg-blue-900 bg-blue-400 */
+  }
   .btn {
-    @apply text-center border-2 w-32 rounded-lg hover:scale-110 transition-all bg-stone-50 py-1 dark:bg-stone-900
-  }
-  .btn.primary {
-    @apply text-blue-400 border-blue-400
-  }
-  .btn.selected {
-    @apply scale-125 font-bold
+    @apply text-center border-2 w-32 rounded-lg transition-all py-1
+           dark:bg-gradient-to-br dark:from-indigo-900 dark:to-blue-900
+           hover:dark:bg-gradient-to-tl hover:dark:from-indigo-900 hover:dark:to-blue-900
+           hover:cursor-pointer
   }
 
   .link {
