@@ -141,7 +141,7 @@ export default function Fachschaften() {
           {/* {fachschaftenStrapi && fachschaftenStrapi.data.map(entry => (
             <p key={entry.id}>{entry.attributes.name}</p>
           ))} */}
-            <div className="flex-initial w-1/4 flex-col gap-4 hidden sm:flex">
+            <div className="flex-initial w-1/4 flex-col gap-4 hidden md:flex">
                 <h3 className="text-4xl font-bold text-center">Fachschaft</h3>
                 {fachschaften.map((entry) => (
                     <button key={entry.name} className={`mx-auto font-bold text-xl hover:scale-125 transition-all ${entry.id == current_id ? 'text-blue-500 scale-150 hover:scale-150' : ''}`} onClick={() => setCurrent(entry.id)}>{entry.name}</button>
