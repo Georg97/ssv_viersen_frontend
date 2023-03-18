@@ -41,9 +41,9 @@ function LoginForm(props: LoginFormProps) {
     return (
         <div className={`md:relative md:flex md:flex-row md:justify-end ${props.className}`}>
             { user[0] ?
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-4">
                     <p className="text-sm">Willkommen {user[0]?.email}</p>
-                    <button className="" onClick={() => auth.signOut()}>Ausloggen</button>
+                    <button className="btn mx-auto" onClick={() => auth.signOut()}>Ausloggen</button>
                 </div>
             :
                 <>
