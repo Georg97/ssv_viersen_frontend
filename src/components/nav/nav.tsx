@@ -19,7 +19,7 @@ export default function Nav({ items }: { items: nav_item_interface[] }) {
               <span className="border-2 border-stone-900 bg-stone-900 dark:border-stone-300 dark:bg-stone-300 w-full h-3 rounded-sm"></span>
               <span className="border-2 border-stone-900 bg-stone-900 dark:border-stone-300 dark:bg-stone-300 w-full h-3 rounded-sm"></span>
             </button>
-            <div className={`transition-all ${expanded ? 'h-fit' : 'h-0 overflow-hidden'} md:h-fit md:grid md:grid-cols-12 md:mx-auto md:w-full`}>
+            <div className={`transition-all ${expanded ? 'h-fit' : 'h-0 overflow-hidden'} md:h-fit md:grid md:grid-cols-12 md:mx-auto w-full`}>
                 <ul className="
                 h-4/5 container
                 col-span-4 md:items-center

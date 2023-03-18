@@ -21,7 +21,7 @@ function LoginForm(props: LoginFormProps) {
     }
 
     return (
-        <div className={`md:relative ${props.className}`}>
+        <div className={`md:relative md:flex md:flex-row md:justify-end ${props.className}`}>
             <Image src='/login_round.png' width='240' height='240' alt='Login-Formular' className='hidden md:block h-28 w-auto max-w-none p-4 hover:cursor-pointer' onClick={() => setSelected(!selected)} />
             <h4 className={`${selected ? 'hidden' : ''} md:hidden mt-12 font-bold text-2xl`} onClick={() => setSelected(!selected)}>Login</h4>
             <form
@@ -31,8 +31,8 @@ function LoginForm(props: LoginFormProps) {
                     md:absolute md:top-[135%] md:right-8
                     soft-gradient
                     dark:hard-gradient
-                    border-green-500 border-2 rounded-lg md:p-3
-                    relative mx-auto w-[65%] mt-8 p-4
+                    border-green-500 border-2 rounded-lg p-4
+                    relative mx-auto w-[65%] mt-8 md:min-w-fit md:w-64
                 `}>
                 <button
                     onClick={() => setSelected(!selected)}
