@@ -24,7 +24,7 @@ export default function Nav({ items }: { items: nav_item_interface[] }) {
                 h-4/5 container
                 col-span-4 md:items-center
                 flex flex-col md:flex-row md:gap-4 md:mx-auto
-                items-start mt-4 md:mt-0 gap-2
+                items-start mt-4 md:mt-0 gap-2 w-full
             ">
                     {items.map((item, i) => (
                         <NavItem name={item.name} image={item.image} key={item.name} url={item.url} />
