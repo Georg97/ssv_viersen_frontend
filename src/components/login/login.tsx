@@ -21,7 +21,7 @@ function LoginForm(props: LoginFormProps) {
     }
 
     return (
-        <div className={`${props.className}`}>
+        <div className={`md:relative ${props.className}`}>
             <Image src='/login_round.png' width='240' height='240' alt='Login-Formular' className='h-28 w-auto max-w-none p-4 hover:cursor-pointer' onClick={() => setSelected(!selected)} />
             <form
                 onSubmit={handleSubmit}
