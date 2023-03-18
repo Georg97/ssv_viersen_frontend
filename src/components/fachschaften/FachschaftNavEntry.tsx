@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { DocumentData } from "firebase/firestore"
+import { doc, DocumentData, getFirestore, writeBatch } from "firebase/firestore"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "@/lib/firebase"
 import { FormEvent, useState } from "react"
@@ -22,12 +22,29 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
         setCurrentName(event.currentTarget.value)
         // props.setIsEditting(true)
     }
-    const onCurrentNameKeyUp = (event: any) => {
+    const onCurrentNameKeyUp = async (event: any) => {
         // console.log(event.code);
         if (event.code == 'Enter' || event.code == 'Escape')
             setEditMode(false)
+            // setCurrentName(event.currentTarget.value)
         if (event.code == 'Enter') {
-            
+            try {
+                const targetDoc = doc(getFirestore(), 'Fachschaft', props.entry.id)
+
+                const copiedValue = event.currentTarget.value
+
+                const batch = writeBatch(getFirestore())
+                batch.set(targetDoc, {
+                      fachwart: props.entry.data().fachwart
+                    , icon: props.entry.data().icon
+                    , name: event.currentTarget.value
+                 })
+                 console.log(await batch.commit())
+                 setCurrentName(copiedValue)
+            } catch (error) {
+                console.error("Error writing to firestore: ", error)
+                return
+            }
         }
     }
 
@@ -58,7 +75,7 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
                         ></input>
                     :
                     <h4 className="col-span-4 ml-4">
-                        {props.entry.data().name}
+                        {currentName}
                     </h4>
                 }
             </div>
