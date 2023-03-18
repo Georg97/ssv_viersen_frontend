@@ -31,6 +31,7 @@ function LoginForm(props: LoginFormProps) {
                     md:absolute md:top-[135%] md:right-8
                     soft-gradient
                     dark:hard-gradient
+                    bg-stone-200 dark:bg-slate-900
                     border-green-500 border-2 rounded-lg p-4
                     relative mx-auto w-[65%] mt-8 md:min-w-fit md:w-64
                 `}>
