@@ -22,6 +22,14 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
         setCurrentName(event.currentTarget.value)
         // props.setIsEditting(true)
     }
+    const onCurrentNameKeyUp = (event: any) => {
+        // console.log(event.code);
+        if (event.code == 'Enter' || event.code == 'Escape')
+            setEditMode(false)
+        if (event.code == 'Enter') {
+            
+        }
+    }
 
     return (
         <div
@@ -41,7 +49,13 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
                 />
                 {
                     editMode ?
-                        <input type="text" value={currentName} onChange={currentNameChanged} className="col-span-4 ml-4 text-stone-900 darktext-stone-300 text-sm"></input>
+                        <input
+                            className="col-span-4 ml-4 text-stone-900 darktext-stone-300 text-sm"
+                            type="text"
+                            value={currentName}
+                            onChange={currentNameChanged}
+                            onKeyUp={onCurrentNameKeyUp}
+                        ></input>
                     :
                     <h4 className="col-span-4 ml-4">
                         {props.entry.data().name}

@@ -179,8 +179,8 @@ export default function Fachschaften() {
                 />
                 ))}
                 {user[0] && (
-                    <button className="btn w-fit mx-auto px-2 text-xl font-bold hover:scale-110 mt-8">
-                        <span className="border-r-2 mr-1 pr-1">+</span>
+                    <button className="btn w-fit mx-auto px-4 text-xl font-bold hover:scale-110 mt-8 py-2">
+                        {/* <span className="border-r-2 mr-1 pr-1">+</span> */}
                         Fachschaft hinzufügen
                     </button>
                 )}
