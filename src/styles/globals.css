@@ -22,8 +22,10 @@ body {
   }
   .btn {
     @apply text-center border-2 w-32 rounded-lg transition-all py-1
-           dark:bg-gradient-to-br dark:from-indigo-900 dark:to-blue-900
-           hover:dark:bg-gradient-to-tl hover:dark:from-indigo-900 hover:dark:to-blue-900
+           border-stone-900 text-stone-900 dark:text-stone-300 dark:border-stone-300
+           bg-gradient-to-br hover:bg-gradient-to-tl
+           dark:from-indigo-900 dark:to-blue-900
+           from-stone-50 to-stone-200
            hover:cursor-pointer
   }
 
