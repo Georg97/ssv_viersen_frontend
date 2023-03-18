@@ -27,11 +27,11 @@ export default function Home({menu_entries}: {menu_entries: nav_item_interface[]
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
+            <main className="w-full overflow-hidden">
                 {/* <button className="text-red-400">test</button> */}
-                <h1 className="text-center text-6xl mt-8 mb-24 font-bold">Stadtsportverband Viersen</h1>
-                <h3 className="w-8/12 text-center mx-auto text-2xl">Willkommen auf der neuen Seite vom Stadtsportverband Viersen! <br></br><br></br></h3>
-                <p className="w-8/12 text-center mx-auto text-lg">Hier ist noch nicht viel zu sehen, allerdings könnt ihr oben bereits auf die <Link href='/fachschaften' className="link">Fachschaften</Link> klicken. Bald werden noch weitere Informationen folgen!</p>
+                <h1 className="text-center text-3xl md:text-6xl mt-8 mb-24 font-bold">Stadtsportverband Viersen</h1>
+                <h3 className="w-8/12 text-center mx-auto text-xl md:text-2xl">Willkommen auf der neuen Seite vom Stadtsportverband Viersen! <br></br><br></br></h3>
+                <p className="w-8/12 text-center mx-auto md:text-lg">Hier ist noch nicht viel zu sehen, allerdings könnt ihr oben bereits auf die <Link href='/fachschaften' className="link">Fachschaften</Link> klicken. Bald werden noch weitere Informationen folgen!</p>
             </main>
         </>
     )
