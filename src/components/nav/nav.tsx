@@ -3,29 +3,35 @@ import LoginForm from '../login/login';
 import MenuButton from './menu/menu_button';
 import NavItem from './nav_item';
 import { nav_item_interface } from './nav_item_interface';
+// import '@/styles/Nav.module.css';
+// import '@/styles/Login.module.css';
+// import './Nav.module.css';
 
 export default function Nav({ items }: { items: nav_item_interface[] }) {
     const [expanded, setExpanded] = useState(false)
 
     return (
         <nav className="
-              hard-gradient bottom-2 border-b-4 border-green-500 py-3 h-36 flex flex-row md:px-[10%] xl:px-[15%] 2xl:px-[20%]
+              hard-gradient bottom-2 border-b-4 border-green-500 py-3 md:h-36 flex flex-col items-start md:flex-row px-8 md:px-[10%] xl:px-[15%] 2xl:px-[20%] md:items-center
         ">
-            <button onClick={() => setExpanded(!expanded)} className="md:hidden">
-              <span className="border-2 border-black"></span>
-              <span className="border-2 border-black"></span>
-              <span className="border-2 border-black"></span>
+            <button onClick={() => setExpanded(!expanded)} className="md:hidden flex flex-col gap-2 w-16">
+              <span className="border-2 border-stone-900 bg-stone-900 dark:border-stone-300 dark:bg-stone-300 w-full h-3 rounded-sm"></span>
+              <span className="border-2 border-stone-900 bg-stone-900 dark:border-stone-300 dark:bg-stone-300 w-full h-3 rounded-sm"></span>
+              <span className="border-2 border-stone-900 bg-stone-900 dark:border-stone-300 dark:bg-stone-300 w-full h-3 rounded-sm"></span>
             </button>
-            <div className={`${expanded ? 'block' : 'hidden'} md:flex md:flex-row md:items-center md:justify-center`}>
+            <div className={`transition-all ${expanded ? 'h-fit' : 'h-0 overflow-hidden'} md:h-fit md:grid md:grid-cols-12 md:mx-auto md:w-full`}>
                 <ul className="
                 h-4/5 container
-                sm:flex sm:gap-4 sm:mx-auto
+                col-span-4 md:items-center
+                flex flex-col md:flex-row md:gap-4 md:mx-auto
+                items-start mt-4 md:mt-0 gap-2
             ">
                     {items.map((item, i) => (
                         <NavItem name={item.name} image={item.image} key={item.name} url={item.url} />
                     ))}
                 </ul>
-                <LoginForm className="flex-grow flex flex-row items-end" />
+                <div className="col-span-6"></div>
+                <LoginForm className="col-span-2" />
             </div>
         </nav>
     )

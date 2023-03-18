@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import {FormEvent, FormEventHandler, useState } from 'react';
 import LoginFormProps from './LoginFormProps';
+// import '@/styles/Nav.module.css';
 
 function LoginForm(props: LoginFormProps) {
     const [selected, setSelected] = useState(false)
@@ -20,8 +21,8 @@ function LoginForm(props: LoginFormProps) {
     }
 
     return (
-        <div className={`sm:relative ${props.className}`}>
-            <Image src='/login_round.png' width='240' height='240' alt='Login-Formular' className='w-auto p-4 hover:cursor-pointer' onClick={() => setSelected(!selected)} />
+        <div className={`${props.className}`}>
+            <Image src='/login_round.png' width='240' height='240' alt='Login-Formular' className='h-28 w-auto max-w-none p-4 hover:cursor-pointer' onClick={() => setSelected(!selected)} />
             <form
                 onSubmit={handleSubmit}
                 className={`
