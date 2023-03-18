@@ -9,10 +9,14 @@ export default function Nav({ items }: { items: nav_item_interface[] }) {
 
     return (
         <nav className="
-              hard-gradient bottom-2 border-b-4 border-green-500 py-3 h-36 flex flex-row
+              hard-gradient bottom-2 border-b-4 border-green-500 py-3 h-36 flex flex-row md:px-[10%] xl:px-[15%] 2xl:px-[20%]
         ">
-            <button onClick={() => setExpanded(!expanded)} className="md:hidden">o</button>
-            <div className={`${expanded ? 'block' : 'hidden'} md:block`}>
+            <button onClick={() => setExpanded(!expanded)} className="md:hidden">
+              <span className="border-2 border-black"></span>
+              <span className="border-2 border-black"></span>
+              <span className="border-2 border-black"></span>
+            </button>
+            <div className={`${expanded ? 'block' : 'hidden'} md:flex md:flex-row md:items-center md:justify-center`}>
                 <ul className="
                 h-4/5 container
                 sm:flex sm:gap-4 sm:mx-auto
@@ -21,7 +25,7 @@ export default function Nav({ items }: { items: nav_item_interface[] }) {
                         <NavItem name={item.name} image={item.image} key={item.name} url={item.url} />
                     ))}
                 </ul>
-                <LoginForm />
+                <LoginForm className="flex-grow flex flex-row items-end" />
             </div>
         </nav>
     )
