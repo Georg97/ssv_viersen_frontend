@@ -2,7 +2,8 @@ import Image from "next/image"
 import { doc, DocumentData, getFirestore, writeBatch } from "firebase/firestore"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "@/lib/firebase"
-import { FormEvent, useState } from "react"
+import { FormEvent, KeyboardEvent, useState } from "react"
+import EditButton from "../EditButton/EditButton"
 
 export interface FachschaftNavEntryProps {
     entry: DocumentData
@@ -22,7 +23,7 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
         setCurrentName(event.currentTarget.value)
         // props.setIsEditting(true)
     }
-    const onCurrentNameKeyUp = async (event: any) => {
+    const onCurrentNameKeyUp = async (event: KeyboardEvent<HTMLInputElement>) => {
         // console.log(event.code);
         if (event.code == 'Enter' || event.code == 'Escape')
             setEditMode(false)
@@ -52,7 +53,7 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
         <div
             className="flex flex-row items-center justify-start gap-4"
         >
-            {user[0] && <h4 className="col-span-1 text-3xl hover:cursor-pointer hover:scale-125 transition-all text-green-500" onClick={() => setEditMode(!editMode)}>{editMode ? '✖' : '🖉' }</h4>}
+            { user[0] && <EditButton editMode={editMode} setEditMode={setEditMode} /> }
             <div
                 className={`grid grid-cols-6 mx-auto mt-4 font-bold text-xl hover:cursor-pointer hover:scale-125 origin-left transition-all ${props.entry.id == props.currentId ? 'text-blue-500 scale-150 hover:scale-150' : ''}`}
                 onClick={() => props.setCurrent(props.entry.id)}
@@ -67,7 +68,8 @@ export default function FachschaftNavEntry(props: FachschaftNavEntryProps) {
                 {
                     editMode ?
                         <input
-                            className="col-span-4 ml-4 text-stone-900 darktext-stone-300 text-sm"
+                            // className="col-span-4 ml-4 text-stone-900 darktext-stone-300 text-sm"
+                            className="col-span-5 ml-4 text-stone-900 darktext-stone-300 text-sm text-left"
                             type="text"
                             value={currentName}
                             onChange={currentNameChanged}

@@ -6,5 +6,5 @@ export default interface VereinInterface {
     // name: string
     // personen: person_verein_interface[]
     fachschaftId: string
-    verein: DocumentData
+    verein: DocumentData | null
 }

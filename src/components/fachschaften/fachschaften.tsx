@@ -24,6 +24,7 @@ import { Fahkwang } from "next/font/google"
 import FachschaftNavEntry from "./FachschaftNavEntry"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "@/lib/firebase"
+import AddFachschaftButton from "./AddFachschaftButton"
 
 // export const getServerSideProps: GetServerSideProps = async (ctx) => {
 //   const { data } = await  getFachschaften()
@@ -69,10 +70,7 @@ export default function Fachschaften() {
                     />
                 ))}
                 {user[0] && (
-                    <button className="btn w-fit mx-auto px-4 text-xl font-bold hover:scale-110 mt-8 py-2">
-                        {/* <span className="border-r-2 mr-1 pr-1">+</span> */}
-                        Fachschaft hinzufügen
-                    </button>
+                    <AddFachschaftButton />
                 )}
             </div>
             <div className="flex-initial w-3/4">
