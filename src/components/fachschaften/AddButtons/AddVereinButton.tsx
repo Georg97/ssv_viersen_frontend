@@ -1,6 +1,6 @@
 import { doc, getDoc, getFirestore, setDoc, writeBatch } from "firebase/firestore";
 import { FormEvent, useState } from "react";
-import VereinInterface from "../fachschaften/VereinInterface";
+import VereinInterface from "../VereinInterface";
 
 export default function AddVereinButton(props: VereinInterface) {
     const [editMode, setEditMode] = useState(false);

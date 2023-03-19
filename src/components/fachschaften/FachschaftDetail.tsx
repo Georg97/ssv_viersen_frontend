@@ -3,10 +3,10 @@ import { getVereineForFachschaft } from "@/utils/Fachschaften";
 import { doc, DocumentData, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { FormEvent, KeyboardEvent, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import AddVereinButton from "./AddButtons/AddVereinButton";
 import EditButton from "./EditButton/EditButton";
-import AddVereinButton from "../AddButtons/AddVereinButton";
 import FachschaftInterface from "./FachschaftInterface";
-import VereinDetail from "./VereinDetail";
+import VereinDetail from "./VereinDetail/VereinDetail";
 
 export default function FachschaftDetail(props: FachschaftInterface) {
     const user = useAuthState(auth)

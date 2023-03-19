@@ -1,6 +1,7 @@
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { FormEvent, KeyboardEvent, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import EditProps from "./EditProps";
 import { auth } from "./firebase";
 
 export default function useEdit(value: string, docPath: string, getValueCallback: (inputValue: string) => any) {
@@ -47,6 +48,6 @@ export default function useEdit(value: string, docPath: string, getValueCallback
         , setCurrentValue
         , currentValueChanged
         , onKeyUp
-    }
+    } as EditProps
 }
 

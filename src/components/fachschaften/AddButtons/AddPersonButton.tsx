@@ -1,8 +1,8 @@
 import useAdd from "@/lib/useAdd";
 import useEdit from "@/lib/useEdit";
-import TextInput from "../fachschaften/TextInput/TextInput";
-import PersonModel from "../fachschaften/VereinPerson/PersonModel";
-import VereinPersonProps from "../fachschaften/VereinPerson/VereinPersonProps";
+import TextInput from "../TextInput/TextInput";
+import PersonModel from "../VereinPerson/PersonModel";
+import VereinPersonProps from "../VereinPerson/VereinPersonProps";
 
 export default function AddPersonButton(props: VereinPersonProps) {
     const {
