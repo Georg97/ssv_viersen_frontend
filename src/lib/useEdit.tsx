@@ -1,5 +1,5 @@
 import { doc, getFirestore, setDoc } from "firebase/firestore";
-import { FormEvent, KeyboardEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, useReducer, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import EditProps from "./EditProps";
 import { auth } from "./firebase";
@@ -9,6 +9,7 @@ export default function useEdit(value: string, docPath: string, getValueCallback
     const [editMode, setEditMode] = useState(false);
     const [isValid, setIsValid] = useState(false);
     const [currentValue, setCurrentValue] = useState(value);
+    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
     const currentValueChanged = (event: FormEvent<HTMLInputElement>) => {
         event.preventDefault()
@@ -31,6 +32,7 @@ export default function useEdit(value: string, docPath: string, getValueCallback
                 const copiedValue = event.currentTarget.value
                 setDoc(ref, getValueCallback(copiedValue))
                 setCurrentValue(copiedValue)
+                forceUpdate()
             } catch (error) {
                 console.error("Error writing to firestore: ", error)
                 return

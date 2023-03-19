@@ -68,7 +68,7 @@ export default function FachschaftDetail(props: FachschaftInterface) {
                         onKeyUp={onKeyUp}
                     ></input>
                     :
-                    <h3 className="text-2xl col-span-1">{props.fachschaft.data().fachwart}</h3>
+                    <h3 className="text-2xl col-span-1">{currentFachwartName}</h3>
                 }
             </div>
             <div className="flex flex-col col-span-2">

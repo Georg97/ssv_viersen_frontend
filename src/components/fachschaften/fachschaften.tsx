@@ -45,6 +45,7 @@ export default function Fachschaften() {
     const user = useAuthState(auth)
     const [current_id, setCurrent] = useState<number | null>(null)
     // const [isEditting, setIsEditting] = useState(false);
+    const [fachschaftenState, fachschaftenUpdated] = useState(false);
 
     const [fachschaften, setFachschaften] = useState<DocumentData[] | null>(null);
     useEffect(() => {
@@ -53,7 +54,7 @@ export default function Fachschaften() {
             setFachschaften(data)
         }
         getData()
-    }, [])
+    }, [fachschaftenState])
 
     return (
         <div className="flex flex-row">

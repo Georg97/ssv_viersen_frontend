@@ -70,7 +70,7 @@ export default function VereinDetail(props: VereinInterface) {
                         onKeyUp={onKeyUp}
                     ></input>
                     :
-                    <h1 className="text-3xl font-bold mb-4 text-blue-500">{props.verein?.data().name}</h1>
+                    <h1 className="text-3xl font-bold mb-4 text-blue-500">{currentVereinName}</h1>
                 }
             </div>
             <VereinHomepage fachschaftId={props.fachschaftId} verein={props.verein} />
@@ -106,7 +106,7 @@ function VereinHomepage(props: VereinInterface) {
                 {editProps.editMode ?
                     <TextInput onChange={editProps.currentValueChanged} onKeyUp={editProps.onKeyUp} value={editProps.currentValue} />
                     :
-                    <h1 className="font-bold mb-4">{props.verein?.data().homepage}</h1>
+                    <h1 className="font-bold mb-4">{editProps.currentValue}</h1>
                 }
             </div>
         </div>
@@ -134,7 +134,7 @@ function VereinAdresse(props: VereinInterface) {
                 {editProps.editMode ?
                     <TextInput onChange={editProps.currentValueChanged} onKeyUp={editProps.onKeyUp} value={editProps.currentValue} />
                     :
-                    <h1 className="font-bold mb-4">{props.verein?.data().adresse}</h1>
+                    <h1 className="font-bold mb-4">{editProps.currentValue}</h1>
                 }
             </div>
         </div>
