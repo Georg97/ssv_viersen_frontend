@@ -1,9 +1,9 @@
-import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { FormEvent, KeyboardEvent, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 
-export default function useEdit(value: string, docPath: string, getValueCallback: (inputValue: string) => any) {
+export default function useAdd(value: string, docBasePath: string, getValueCallback: (inputValue: string) => any) {
     const user = useAuthState(auth)
     const [editMode, setEditMode] = useState(false);
     const [isValid, setIsValid] = useState(false);
@@ -23,11 +23,15 @@ export default function useEdit(value: string, docPath: string, getValueCallback
             return
         }
 
+        const copiedValue = event.currentTarget.value
+        const ref = doc(getFirestore(), docBasePath, event.currentTarget.value)
+        const snap = await getDoc(ref)
+        setIsValid(!snap.exists())
+        if (snap.exists())
+            return
+
         if (event.code == 'Enter') {
             try {
-                // const ref = doc(getFirestore(), 'Fachschaft', props.fachschaft.id)
-                const ref = doc(getFirestore(), docPath)
-                const copiedValue = event.currentTarget.value
                 setDoc(ref, getValueCallback(copiedValue))
                 setCurrentValue(copiedValue)
             } catch (error) {
@@ -49,4 +53,3 @@ export default function useEdit(value: string, docPath: string, getValueCallback
         , onKeyUp
     }
 }
-

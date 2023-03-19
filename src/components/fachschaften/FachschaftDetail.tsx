@@ -4,7 +4,7 @@ import { doc, DocumentData, getDoc, getFirestore, setDoc } from "firebase/firest
 import { FormEvent, KeyboardEvent, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import EditButton from "./EditButton/EditButton";
-import AddVereinButton from "./AddVereinButton";
+import AddVereinButton from "../AddButtons/AddVereinButton";
 import FachschaftInterface from "./FachschaftInterface";
 import VereinDetail from "./VereinDetail";
 

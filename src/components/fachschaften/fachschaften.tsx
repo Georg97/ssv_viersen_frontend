@@ -24,7 +24,7 @@ import { Fahkwang } from "next/font/google"
 import FachschaftNavEntry from "./FachschaftNavEntry"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "@/lib/firebase"
-import AddFachschaftButton from "./AddFachschaftButton"
+import AddFachschaftButton from "../AddButtons/AddFachschaftButton"
 
 // export const getServerSideProps: GetServerSideProps = async (ctx) => {
 //   const { data } = await  getFachschaften()

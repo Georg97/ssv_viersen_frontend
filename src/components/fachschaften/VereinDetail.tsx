@@ -3,6 +3,7 @@ import { getPersonenForVerein } from "@/utils/Fachschaften";
 import { doc, DocumentData, getFirestore, setDoc } from "firebase/firestore";
 import { FormEvent, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import AddPersonButton from "../AddButtons/AddPersonButton";
 import EditButton from "./EditButton/EditButton";
 import VereinInterface from "./VereinInterface";
 import VereinPerson from "./VereinPerson/VereinPerson";
@@ -71,6 +72,7 @@ export default function VereinDetail(props: VereinInterface) {
             {personen && personen.map(person => (
                 <VereinPerson fachschaftId={props.fachschaftId} vereinId={props.verein?.id} person={person} key={person.id} />
             ))}
+            <AddPersonButton fachschaftId={props.fachschaftId} vereinId={props.verein?.id} person={null} />
         </div>
     )
 }
