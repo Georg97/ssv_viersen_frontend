@@ -3,7 +3,7 @@ import { doc, DocumentData, getFirestore, writeBatch } from "firebase/firestore"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "@/lib/firebase"
 import { FormEvent, KeyboardEvent, useState } from "react"
-import EditButton from "../EditButton/EditButton"
+import EditButton from "./EditButton/EditButton"
 
 export interface FachschaftNavEntryProps {
     entry: DocumentData

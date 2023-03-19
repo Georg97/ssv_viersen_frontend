@@ -1,9 +1,9 @@
 import { auth } from "@/lib/firebase";
 import { getVereineForFachschaft } from "@/utils/Fachschaften";
 import { doc, DocumentData, getDoc, getFirestore, setDoc } from "firebase/firestore";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, KeyboardEvent, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import EditButton from "../EditButton/EditButton";
+import EditButton from "./EditButton/EditButton";
 import AddVereinButton from "./AddVereinButton";
 import FachschaftInterface from "./FachschaftInterface";
 import VereinDetail from "./VereinDetail";
@@ -19,7 +19,7 @@ export default function FachschaftDetail(props: FachschaftInterface) {
         event.preventDefault()
         setCurrentFachwartName(event.currentTarget.value)
     }
-    const onKeyUp = async (event: any) => {
+    const onKeyUp = async (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.code == 'Enter' || event.code == 'Escape')
             setEditMode(false)
 
