@@ -80,7 +80,7 @@ export default function VereinDetail(props: VereinInterface) {
             {personen && personen.map(person => (
                 <VereinPerson fachschaftId={props.fachschaftId} vereinId={props.verein?.id} person={person} key={person.id} />
             ))}
-            <AddPersonButton fachschaftId={props.fachschaftId} vereinId={props.verein?.id} person={null} />
+            { user[0] && <AddPersonButton fachschaftId={props.fachschaftId} vereinId={props.verein?.id} person={null} /> }
         </div>
     )
 }
